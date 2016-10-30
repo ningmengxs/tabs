@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+<div class="tabs_warp">
+    <div class="tabs_top">
+        <ul class="tabMenu">
+            <li class="tabs_ulli tabs_on">tabs1</li>
+            <li class="tabs_ulli">tabs2</li>
+            <li class="tabs_ulli">tabs3</li>
+        </ul>
+    </div>
+    <div class="tabContent">
+        <div class="tabs_box">这是tabs1</div>
+        <div class="tabs_box tabs_hide">这是tabs2</div>
+        <div class="tabs_box tabs_hide">这是tabs3</div>
+    </div>
+</div>
+<script>
+    //tab 切换
+    function tabchange(tabMenu,on,tabContent){
+        $(tabMenu).children().click(function(){
+            $(this).addClass(on).siblings().removeClass(on);
+            var _index = $(tabMenu).children().index(this);
+            $(tabContent).children().eq(_index).show().siblings().hide();
+        });
+    };
+    // 传参进去
+    tabchange(".tabMenu","tabs_on",".tabContent");
+</script>
+</body>
+</html>
